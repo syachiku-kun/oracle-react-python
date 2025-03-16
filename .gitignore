@@ -1,0 +1,16 @@
+frontend/my-app/node_modules/
+frontend/my-app/.env*
+
+backend/**/__pycache__/
+backend/**/lib/
+backend/ssl/*
+backend/app/tmp/
+backend/logs/**/
+
+db/*3
+# db/dbconfig/ORCL/orapwORCL
+# db/dbconfig/ORCL/spfileORCL.ora
+# db/dbconfig/ORCL/tnsnames.ora
+
+.dockervenv/
+.vscode/

@@ -1,0 +1,861 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<title>テーブル定義書&#32;human_resources&#32;HR</title>
+		<link rel="stylesheet" href="a5m2.css">
+	</head>
+	<body>
+	<div class="tableinfo-caption" style="width: 912px;">
+		<table>
+			<colgroup>
+				<col width="300">
+				<col width="300">
+			</colgroup>
+			<tr>
+			<th>employees table. Contains 107 rows. References with departments,</th>
+			<td>HR . EMPLOYEES</td>
+			</tr>
+		</table>
+	</div>
+	<div class="tableinfo-caption-stuffing"></div>
+
+	<table>
+		<caption>テーブル情報</caption>
+			<colgroup>
+				<col width="150">
+				<col width="305">
+				<col width="150">
+				<col width="305">
+			</colgroup>
+			<th>システム名</th>
+			<td>human_resources</td>
+			<th>作成者</th>
+			<td>db-sample-schemas-19c</td>
+		</tr>
+		<tr>
+			<th>サブシステム名</th>
+			<td>HR</td>
+			<th>作成日</th>
+			<td>2025/03/16</td>
+		</tr>
+		<tr>
+			<th>RDBMS</th>
+			<td colspan="3">Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production 19.0.0.0.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><b>備考</b><br>jobs,&#32;job_history&#32;tables.&#32;Contains&#32;a&#32;self&#32;reference.</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>カラム情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="200">
+				<col width="80">
+				<col width="120">
+				<col width="140">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>論理名</th>
+			<th>物理名</th>
+			<th>データ型</th>
+			<th>Not Null</th>
+			<th>デフォルト</th>
+			<th>備考</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>Primary&#32;key&#32;of&#32;employees&#32;table.</td>
+			<td>EMPLOYEE_ID</td>
+			<td>NUMBER(6,&#32;0)</td>
+			<td>Yes (PK)</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>First&#32;name&#32;of&#32;the&#32;employee.&#32;A&#32;not&#32;null&#32;column.</td>
+			<td>FIRST_NAME</td>
+			<td>VARCHAR2(20)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>Last&#32;name&#32;of&#32;the&#32;employee.&#32;A&#32;not&#32;null&#32;column.</td>
+			<td>LAST_NAME</td>
+			<td>VARCHAR2(25)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>Email&#32;id&#32;of&#32;the&#32;employee</td>
+			<td>EMAIL</td>
+			<td>VARCHAR2(25)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>Phone&#32;number&#32;of&#32;the&#32;employee;&#32;includes&#32;country&#32;code&#32;and&#32;area&#32;code</td>
+			<td>PHONE_NUMBER</td>
+			<td>VARCHAR2(20)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>Date&#32;when&#32;the&#32;employee&#32;started&#32;on&#32;this&#32;job.&#32;A&#32;not&#32;null&#32;column.</td>
+			<td>HIRE_DATE</td>
+			<td>DATE</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>Current&#32;job&#32;of&#32;the&#32;employee;&#32;foreign&#32;key&#32;to&#32;job_id&#32;column&#32;of&#32;the</td>
+			<td>JOB_ID</td>
+			<td>VARCHAR2(10)</td>
+			<td>Yes</td>
+			<td></td>
+			<td>jobs&#32;table.&#32;A&#32;not&#32;null&#32;column.</td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td>Monthly&#32;salary&#32;of&#32;the&#32;employee.&#32;Must&#32;be&#32;greater</td>
+			<td>SALARY</td>
+			<td>NUMBER(8,&#32;2)</td>
+			<td></td>
+			<td></td>
+			<td>than&#32;zero&#32;(enforced&#32;by&#32;constraint&#32;emp_salary_min)</td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td>Commission&#32;percentage&#32;of&#32;the&#32;employee;&#32;Only&#32;employees&#32;in&#32;sales</td>
+			<td>COMMISSION_PCT</td>
+			<td>NUMBER(2,&#32;2)</td>
+			<td></td>
+			<td></td>
+			<td>department&#32;elgible&#32;for&#32;commission&#32;percentage</td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td>Manager&#32;id&#32;of&#32;the&#32;employee;&#32;has&#32;same&#32;domain&#32;as&#32;manager_id&#32;in</td>
+			<td>MANAGER_ID</td>
+			<td>NUMBER(6,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td>departments&#32;table.&#32;Foreign&#32;key&#32;to&#32;employee_id&#32;column&#32;of&#32;employees&#32;table.(useful&#32;for&#32;reflexive&#32;joins&#32;and&#32;CONNECT&#32;BY&#32;query)</td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td>Department&#32;id&#32;where&#32;employee&#32;works;&#32;foreign&#32;key&#32;to&#32;department_id</td>
+			<td>DEPARTMENT_ID</td>
+			<td>NUMBER(4,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td>column&#32;of&#32;the&#32;departments&#32;table</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>インデックス情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="70">
+				<col width="470">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>インデックス名</th>
+			<th>カラムリスト</th>
+			<th>ユニーク</th>
+			<th>オプション</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>EMP_EMP_ID_PK</td>
+			<td>EMPLOYEE_ID</td>
+			<td>Yes</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>EMP_DEPARTMENT_IX</td>
+			<td>DEPARTMENT_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>EMP_EMAIL_UK</td>
+			<td>EMAIL</td>
+			<td>制約</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>EMP_JOB_IX</td>
+			<td>JOB_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>EMP_MANAGER_IX</td>
+			<td>MANAGER_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>EMP_NAME_IX</td>
+			<td>LAST_NAME,FIRST_NAME</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>制約情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="540">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>制約名</th>
+			<th>種類</th>
+			<th>制約定義</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>EMP_EMP_ID_PK</td>
+			<td>PRIMARY&#32;KEY</td>
+			<td>EMPLOYEE_ID</td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>EMP_EMAIL_UK</td>
+			<td>UNIQUE</td>
+			<td>EMAIL</td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>EMP_EMAIL_NN</td>
+			<td>CHECK</td>
+			<td>&quot;EMAIL&quot;&#32;IS&#32;NOT&#32;NULL</td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>EMP_HIRE_DATE_NN</td>
+			<td>CHECK</td>
+			<td>&quot;HIRE_DATE&quot;&#32;IS&#32;NOT&#32;NULL</td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>EMP_JOB_NN</td>
+			<td>CHECK</td>
+			<td>&quot;JOB_ID&quot;&#32;IS&#32;NOT&#32;NULL</td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>EMP_LAST_NAME_NN</td>
+			<td>CHECK</td>
+			<td>&quot;LAST_NAME&quot;&#32;IS&#32;NOT&#32;NULL</td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>EMP_SALARY_MIN</td>
+			<td>CHECK</td>
+			<td>salary&#32;&gt;&#32;0</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照先</th>
+			<th>参照先カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>EMP_DEPT_FK</td>
+			<td>DEPARTMENT_ID</td>
+			<td><a href="HR.DEPARTMENTS.html">HR.DEPARTMENTS</td>
+			<td>DEPARTMENT_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>EMP_JOB_FK</td>
+			<td>JOB_ID</td>
+			<td><a href="HR.JOBS.html">HR.JOBS</td>
+			<td>JOB_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>EMP_MANAGER_FK</td>
+			<td>EMPLOYEE_ID</td>
+			<td><a href="HR.EMPLOYEES.html">HR.EMPLOYEES</td>
+			<td>EMPLOYEE_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報(PK側)</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照元</th>
+			<th>参照元カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>DEPT_MGR_FK</td>
+			<td>EMPLOYEE_ID</td>
+			<td><a href="HR.DEPARTMENTS.html">HR.DEPARTMENTS</td>
+			<td>EMPLOYEE_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>EMP_MANAGER_FK</td>
+			<td>EMPLOYEE_ID</td>
+			<td><a href="HR.EMPLOYEES.html">HR.EMPLOYEES</td>
+			<td>EMPLOYEE_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>JHIST_EMP_FK</td>
+			<td>EMPLOYEE_ID</td>
+			<td><a href="HR.JOB_HISTORY.html">HR.JOB_HISTORY</td>
+			<td>EMPLOYEE_ID</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>トリガー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="370">
+			</colgroup>
+			<th>No.</th>
+			<th>トリガー名</th>
+			<th>イベント</th>
+			<th>タイミング</th>
+			<th>条件</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>SECURE_EMPLOYEES</td>
+			<td>Insert,Update,Delete</td>
+			<td>Before&#32;statement</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>UPDATE_JOB_HISTORY</td>
+			<td>Update</td>
+			<td>After&#32;row</td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>RDBMS固有の情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="250">
+				<col width="630">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>プロパティ名</th>
+			<th>プロパティ値</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>OWNER</td>
+			<td>HR</td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>TABLE_NAME</td>
+			<td>EMPLOYEES</td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>TABLESPACE_NAME</td>
+			<td>DEMO_TS</td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>CLUSTER_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>IOT_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>STATUS</td>
+			<td>VALID</td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>PCT_FREE</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td>PCT_USED</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td>INI_TRANS</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td>MAX_TRANS</td>
+			<td>255</td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td>INITIAL_EXTENT</td>
+			<td>65536</td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td>NEXT_EXTENT</td>
+			<td>1048576</td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td>MIN_EXTENTS</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td>MAX_EXTENTS</td>
+			<td>2147483645</td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td>PCT_INCREASE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td>FREELISTS</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">17</td>
+			<td>FREELIST_GROUPS</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">18</td>
+			<td>LOGGING</td>
+			<td>YES</td>
+		</tr>
+		<tr>
+			<td class="number-format">19</td>
+			<td>BACKED_UP</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">20</td>
+			<td>NUM_ROWS</td>
+			<td>107</td>
+		</tr>
+		<tr>
+			<td class="number-format">21</td>
+			<td>BLOCKS</td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<td class="number-format">22</td>
+			<td>EMPTY_BLOCKS</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">23</td>
+			<td>AVG_SPACE</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">24</td>
+			<td>CHAIN_CNT</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">25</td>
+			<td>AVG_ROW_LEN</td>
+			<td>69</td>
+		</tr>
+		<tr>
+			<td class="number-format">26</td>
+			<td>AVG_SPACE_FREELIST_BLOCKS</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">27</td>
+			<td>NUM_FREELIST_BLOCKS</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">28</td>
+			<td>DEGREE</td>
+			<td>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</td>
+		</tr>
+		<tr>
+			<td class="number-format">29</td>
+			<td>INSTANCES</td>
+			<td>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;1</td>
+		</tr>
+		<tr>
+			<td class="number-format">30</td>
+			<td>CACHE</td>
+			<td>&#32;&#32;&#32;&#32;N</td>
+		</tr>
+		<tr>
+			<td class="number-format">31</td>
+			<td>TABLE_LOCK</td>
+			<td>ENABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">32</td>
+			<td>SAMPLE_SIZE</td>
+			<td>107</td>
+		</tr>
+		<tr>
+			<td class="number-format">33</td>
+			<td>LAST_ANALYZED</td>
+			<td>2025/03/16&#32;3:55:58</td>
+		</tr>
+		<tr>
+			<td class="number-format">34</td>
+			<td>PARTITIONED</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">35</td>
+			<td>IOT_TYPE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">36</td>
+			<td>TEMPORARY</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">37</td>
+			<td>SECONDARY</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">38</td>
+			<td>NESTED</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">39</td>
+			<td>BUFFER_POOL</td>
+			<td>DEFAULT</td>
+		</tr>
+		<tr>
+			<td class="number-format">40</td>
+			<td>FLASH_CACHE</td>
+			<td>DEFAULT</td>
+		</tr>
+		<tr>
+			<td class="number-format">41</td>
+			<td>CELL_FLASH_CACHE</td>
+			<td>DEFAULT</td>
+		</tr>
+		<tr>
+			<td class="number-format">42</td>
+			<td>ROW_MOVEMENT</td>
+			<td>DISABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">43</td>
+			<td>GLOBAL_STATS</td>
+			<td>YES</td>
+		</tr>
+		<tr>
+			<td class="number-format">44</td>
+			<td>USER_STATS</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">45</td>
+			<td>DURATION</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">46</td>
+			<td>SKIP_CORRUPT</td>
+			<td>DISABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">47</td>
+			<td>MONITORING</td>
+			<td>YES</td>
+		</tr>
+		<tr>
+			<td class="number-format">48</td>
+			<td>CLUSTER_OWNER</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">49</td>
+			<td>DEPENDENCIES</td>
+			<td>DISABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">50</td>
+			<td>COMPRESSION</td>
+			<td>DISABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">51</td>
+			<td>COMPRESS_FOR</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">52</td>
+			<td>DROPPED</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">53</td>
+			<td>READ_ONLY</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">54</td>
+			<td>SEGMENT_CREATED</td>
+			<td>YES</td>
+		</tr>
+		<tr>
+			<td class="number-format">55</td>
+			<td>RESULT_CACHE</td>
+			<td>DEFAULT</td>
+		</tr>
+		<tr>
+			<td class="number-format">56</td>
+			<td>CLUSTERING</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">57</td>
+			<td>ACTIVITY_TRACKING</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">58</td>
+			<td>DML_TIMESTAMP</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">59</td>
+			<td>HAS_IDENTITY</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">60</td>
+			<td>CONTAINER_DATA</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">61</td>
+			<td>INMEMORY</td>
+			<td>DISABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">62</td>
+			<td>INMEMORY_PRIORITY</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">63</td>
+			<td>INMEMORY_DISTRIBUTE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">64</td>
+			<td>INMEMORY_COMPRESSION</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">65</td>
+			<td>INMEMORY_DUPLICATE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">66</td>
+			<td>DEFAULT_COLLATION</td>
+			<td>USING_NLS_COMP</td>
+		</tr>
+		<tr>
+			<td class="number-format">67</td>
+			<td>DUPLICATED</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">68</td>
+			<td>SHARDED</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">69</td>
+			<td>EXTERNAL</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">70</td>
+			<td>HYBRID</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">71</td>
+			<td>CELLMEMORY</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">72</td>
+			<td>CONTAINERS_DEFAULT</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">73</td>
+			<td>CONTAINER_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">74</td>
+			<td>EXTENDED_DATA_LINK</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">75</td>
+			<td>EXTENDED_DATA_LINK_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">76</td>
+			<td>INMEMORY_SERVICE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">77</td>
+			<td>INMEMORY_SERVICE_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">78</td>
+			<td>CONTAINER_MAP_OBJECT</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">79</td>
+			<td>MEMOPTIMIZE_READ</td>
+			<td>DISABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">80</td>
+			<td>MEMOPTIMIZE_WRITE</td>
+			<td>DISABLED</td>
+		</tr>
+		<tr>
+			<td class="number-format">81</td>
+			<td>HAS_SENSITIVE_COLUMN</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">82</td>
+			<td>ADMIT_NULL</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">83</td>
+			<td>DATA_LINK_DML_ENABLED</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">84</td>
+			<td>LOGICAL_REPLICATION</td>
+			<td>ENABLED</td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>

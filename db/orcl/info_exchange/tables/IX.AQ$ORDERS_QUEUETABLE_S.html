@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<title>テーブル定義書&#32;info_exchange&#32;IX</title>
+		<link rel="stylesheet" href="a5m2.css">
+	</head>
+	<body>
+	<div class="tableinfo-caption" style="width: 912px;">
+		<table>
+			<colgroup>
+				<col width="300">
+				<col width="300">
+			</colgroup>
+			<tr>
+			<th></th>
+			<td>IX . AQ$ORDERS_QUEUETABLE_S</td>
+			</tr>
+		</table>
+	</div>
+	<div class="tableinfo-caption-stuffing"></div>
+
+	<table>
+		<caption>テーブル情報</caption>
+			<colgroup>
+				<col width="150">
+				<col width="305">
+				<col width="150">
+				<col width="305">
+			</colgroup>
+			<th>システム名</th>
+			<td>info_exchange</td>
+			<th>作成者</th>
+			<td>db-sample-schemas-19c</td>
+		</tr>
+		<tr>
+			<th>サブシステム名</th>
+			<td>IX</td>
+			<th>作成日</th>
+			<td>2025/03/16</td>
+		</tr>
+		<tr>
+			<th>RDBMS</th>
+			<td colspan="3">Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production 19.0.0.0.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><b>備考</b><br></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>カラム情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="200">
+				<col width="80">
+				<col width="120">
+				<col width="140">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>論理名</th>
+			<th>物理名</th>
+			<th>データ型</th>
+			<th>Not Null</th>
+			<th>デフォルト</th>
+			<th>備考</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td></td>
+			<td>QUEUE</td>
+			<td>VARCHAR2(128)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td></td>
+			<td>NAME</td>
+			<td>VARCHAR2(512)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td></td>
+			<td>ADDRESS</td>
+			<td>VARCHAR2(1024)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td></td>
+			<td>PROTOCOL</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td></td>
+			<td>TRANSFORMATION</td>
+			<td>VARCHAR2(261)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td></td>
+			<td>QUEUE_TO_QUEUE</td>
+			<td>VARCHAR2(5)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+			<colgroup>
+				<col width="910">
+			</colgroup>
+		<caption>ソース</caption>
+		<tr>
+			<th>ソース</th>
+		</tr>
+		<tr>
+			<td>
+				<pre>
+CREATE&#32;OR&#32;REPLACE&#32;FORCE&#32;EDITIONABLE&#32;VIEW&#32;&quot;IX&quot;.&quot;AQ$ORDERS_QUEUETABLE_S&quot;&#32;(&quot;QUEUE&quot;,&#32;&quot;NAME&quot;,&#32;&quot;ADDRESS&quot;,&#32;&quot;PROTOCOL&quot;,&#32;&quot;TRANSFORMATION&quot;,&#32;&quot;QUEUE_TO_QUEUE&quot;)&#32;AS&#32;<br>&#32;&#32;SELECT&#32;queue_name&#32;QUEUE,&#32;name&#32;NAME&#32;,&#32;address&#32;ADDRESS&#32;,&#32;protocol&#32;PROTOCOL,&#32;trans_name&#32;TRANSFORMATION,&#32;decode(bitand(SUBSCRIBER_TYPE,&#32;512),&#32;512,&#32;&#39;TRUE&#39;,&#32;&#39;FALSE&#39;)&#32;QUEUE_TO_QUEUE&#32;&#32;FROM&#32;&quot;AQ$_ORDERS_QUEUETABLE_S&quot;&#32;s&#32;&#32;WHERE&#32;(bitand(s.subscriber_type,&#32;1)&#32;=&#32;1)&#32;&#32;WITH&#32;READ&#32;ONLY
+				</pre>
+			</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>インデックス情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="70">
+				<col width="470">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>インデックス名</th>
+			<th>カラムリスト</th>
+			<th>ユニーク</th>
+			<th>オプション</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>制約情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="540">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>制約名</th>
+			<th>種類</th>
+			<th>制約定義</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照先</th>
+			<th>参照先カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報(PK側)</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照元</th>
+			<th>参照元カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>トリガー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="370">
+			</colgroup>
+			<th>No.</th>
+			<th>トリガー名</th>
+			<th>イベント</th>
+			<th>タイミング</th>
+			<th>条件</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>RDBMS固有の情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="250">
+				<col width="630">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>プロパティ名</th>
+			<th>プロパティ値</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>OWNER</td>
+			<td>IX</td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>VIEW_NAME</td>
+			<td>AQ$ORDERS_QUEUETABLE_S</td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>TEXT_LENGTH</td>
+			<td>266</td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>TEXT</td>
+			<td>SELECT&#32;queue_name&#32;QUEUE,&#32;name&#32;NAME&#32;,&#32;address&#32;ADDRESS&#32;,&#32;protocol&#32;PROTOCOL,&#32;trans_name&#32;TRANSFORMATION,&#32;decode(bitand(SUBSCRIBER_TYPE,&#32;512),&#32;512,&#32;&#39;TRUE&#39;,&#32;&#39;FALSE&#39;)&#32;QUEUE_TO_QUEUE&#32;&#32;FROM&#32;&quot;AQ$_ORDERS_QUEUETABLE_S&quot;&#32;s&#32;&#32;WHERE&#32;(bitand(s.subscriber_type,&#32;1)&#32;=&#32;1)&#32;&#32;WITH&#32;READ&#32;ONLY</td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>TEXT_VC</td>
+			<td>SELECT&#32;queue_name&#32;QUEUE,&#32;name&#32;NAME&#32;,&#32;address&#32;ADDRESS&#32;,&#32;protocol&#32;PROTOCOL,&#32;trans_name&#32;TRANSFORMATION,&#32;decode(bitand(SUBSCRIBER_TYPE,&#32;512),&#32;512,&#32;&#39;TRUE&#39;,&#32;&#39;FALSE&#39;)&#32;QUEUE_TO_QUEUE&#32;&#32;FROM&#32;&quot;AQ$_ORDERS_QUEUETABLE_S&quot;&#32;s&#32;&#32;WHERE&#32;(bitand(s.subscriber_type,&#32;1)&#32;=&#32;1)&#32;&#32;WITH&#32;READ&#32;ONLY</td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>TYPE_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>TYPE_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td>OID_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td>OID_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td>VIEW_TYPE_OWNER</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td>VIEW_TYPE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td>SUPERVIEW_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td>EDITIONING_VIEW</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td>READ_ONLY</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td>CONTAINER_DATA</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td>BEQUEATH</td>
+			<td>DEFINER</td>
+		</tr>
+		<tr>
+			<td class="number-format">17</td>
+			<td>ORIGIN_CON_ID</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">18</td>
+			<td>DEFAULT_COLLATION</td>
+			<td>USING_NLS_COMP</td>
+		</tr>
+		<tr>
+			<td class="number-format">19</td>
+			<td>CONTAINERS_DEFAULT</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">20</td>
+			<td>CONTAINER_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">21</td>
+			<td>EXTENDED_DATA_LINK</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">22</td>
+			<td>EXTENDED_DATA_LINK_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">23</td>
+			<td>HAS_SENSITIVE_COLUMN</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">24</td>
+			<td>ADMIT_NULL</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">25</td>
+			<td>PDB_LOCAL_ONLY</td>
+			<td>NO</td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>
