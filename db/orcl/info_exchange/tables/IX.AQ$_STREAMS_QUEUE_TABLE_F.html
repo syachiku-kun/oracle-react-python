@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<title>テーブル定義書&#32;info_exchange&#32;IX</title>
+		<link rel="stylesheet" href="a5m2.css">
+	</head>
+	<body>
+	<div class="tableinfo-caption" style="width: 912px;">
+		<table>
+			<colgroup>
+				<col width="300">
+				<col width="300">
+			</colgroup>
+			<tr>
+			<th></th>
+			<td>IX . AQ$_STREAMS_QUEUE_TABLE_F</td>
+			</tr>
+		</table>
+	</div>
+	<div class="tableinfo-caption-stuffing"></div>
+
+	<table>
+		<caption>テーブル情報</caption>
+			<colgroup>
+				<col width="150">
+				<col width="305">
+				<col width="150">
+				<col width="305">
+			</colgroup>
+			<th>システム名</th>
+			<td>info_exchange</td>
+			<th>作成者</th>
+			<td>db-sample-schemas-19c</td>
+		</tr>
+		<tr>
+			<th>サブシステム名</th>
+			<td>IX</td>
+			<th>作成日</th>
+			<td>2025/03/16</td>
+		</tr>
+		<tr>
+			<th>RDBMS</th>
+			<td colspan="3">Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production 19.0.0.0.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><b>備考</b><br></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>カラム情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="200">
+				<col width="80">
+				<col width="120">
+				<col width="140">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>論理名</th>
+			<th>物理名</th>
+			<th>データ型</th>
+			<th>Not Null</th>
+			<th>デフォルト</th>
+			<th>備考</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td></td>
+			<td>Q_NAME</td>
+			<td>VARCHAR2(128)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td></td>
+			<td>ROW_ID</td>
+			<td>ROWID</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td></td>
+			<td>MSGID</td>
+			<td>RAW(16)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td></td>
+			<td>CORRID</td>
+			<td>VARCHAR2(128)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td></td>
+			<td>PRIORITY</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td></td>
+			<td>STATE</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td></td>
+			<td>DELAY</td>
+			<td>TIMESTAMP(6)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td></td>
+			<td>EXPIRATION</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td></td>
+			<td>ENQ_TIME</td>
+			<td>TIMESTAMP(6)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td></td>
+			<td>ENQ_UID</td>
+			<td>VARCHAR2(128)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td></td>
+			<td>ENQ_TID</td>
+			<td>VARCHAR2(30)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td></td>
+			<td>DEQ_TIME</td>
+			<td>TIMESTAMP(6)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td></td>
+			<td>DEQ_UID</td>
+			<td>VARCHAR2(128)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td></td>
+			<td>DEQ_TID</td>
+			<td>VARCHAR2(30)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td></td>
+			<td>RETRY_COUNT</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td></td>
+			<td>EXCEPTION_QSCHEMA</td>
+			<td>VARCHAR2(128)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">17</td>
+			<td></td>
+			<td>EXCEPTION_QUEUE</td>
+			<td>VARCHAR2(128)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">18</td>
+			<td></td>
+			<td>CSCN</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">19</td>
+			<td></td>
+			<td>DSCN</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">20</td>
+			<td></td>
+			<td>CHAIN_NO</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">21</td>
+			<td></td>
+			<td>LOCAL_ORDER_NO</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">22</td>
+			<td></td>
+			<td>TIME_MANAGER_INFO</td>
+			<td>TIMESTAMP(6)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">23</td>
+			<td></td>
+			<td>STEP_NO</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">24</td>
+			<td></td>
+			<td>USER_DATA</td>
+			<td>ANYDATA</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">25</td>
+			<td></td>
+			<td>SENDER_NAME</td>
+			<td>VARCHAR2(128)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">26</td>
+			<td></td>
+			<td>SENDER_ADDRESS</td>
+			<td>VARCHAR2(1024)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">27</td>
+			<td></td>
+			<td>SENDER_PROTOCOL</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">28</td>
+			<td></td>
+			<td>DEQUEUE_MSGID</td>
+			<td>RAW(16)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">29</td>
+			<td></td>
+			<td>DELIVERY_MODE</td>
+			<td>CHAR(10)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">30</td>
+			<td></td>
+			<td>SEQUENCE_NUM</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">31</td>
+			<td></td>
+			<td>MSG_NUM</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">32</td>
+			<td></td>
+			<td>QUEUE_ID</td>
+			<td>NUMBER</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">33</td>
+			<td></td>
+			<td>USER_PROP</td>
+			<td>ANYDATA</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">34</td>
+			<td></td>
+			<td>SUBSCRIBER_ID</td>
+			<td>NUMBER</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">35</td>
+			<td></td>
+			<td>SUBSCRIBER_NAME</td>
+			<td>VARCHAR2(512)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">36</td>
+			<td></td>
+			<td>QUEUE_EVTID</td>
+			<td>NUMBER</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+			<colgroup>
+				<col width="910">
+			</colgroup>
+		<caption>ソース</caption>
+		<tr>
+			<th>ソース</th>
+		</tr>
+		<tr>
+			<td>
+				<pre>
+CREATE&#32;OR&#32;REPLACE&#32;FORCE&#32;EDITIONABLE&#32;VIEW&#32;&quot;IX&quot;.&quot;AQ$_STREAMS_QUEUE_TABLE_F&quot;&#32;(&quot;Q_NAME&quot;,&#32;&quot;ROW_ID&quot;,&#32;&quot;MSGID&quot;,&#32;&quot;CORRID&quot;,&#32;&quot;PRIORITY&quot;,&#32;&quot;STATE&quot;,&#32;&quot;DELAY&quot;,&#32;&quot;EXPIRATION&quot;,&#32;&quot;ENQ_TIME&quot;,&#32;&quot;ENQ_UID&quot;,&#32;&quot;ENQ_TID&quot;,&#32;&quot;DEQ_TIME&quot;,&#32;&quot;DEQ_UID&quot;,&#32;&quot;DEQ_TID&quot;,&#32;&quot;RETRY_COUNT&quot;,&#32;&quot;EXCEPTION_QSCHEMA&quot;,&#32;&quot;EXCEPTION_QUEUE&quot;,&#32;&quot;CSCN&quot;,&#32;&quot;DSCN&quot;,&#32;&quot;CHAIN_NO&quot;,&#32;&quot;LOCAL_ORDER_NO&quot;,&#32;&quot;TIME_MANAGER_INFO&quot;,&#32;&quot;STEP_NO&quot;,&#32;&quot;USER_DATA&quot;,&#32;&quot;SENDER_NAME&quot;,&#32;&quot;SENDER_ADDRESS&quot;,&#32;&quot;SENDER_PROTOCOL&quot;,&#32;&quot;DEQUEUE_MSGID&quot;,&#32;&quot;DELIVERY_MODE&quot;,&#32;&quot;SEQUENCE_NUM&quot;,&#32;&quot;MSG_NUM&quot;,&#32;&quot;QUEUE_ID&quot;,&#32;&quot;USER_PROP&quot;,&#32;&quot;SUBSCRIBER_ID&quot;,&#32;&quot;SUBSCRIBER_NAME&quot;,&#32;&quot;QUEUE_EVTID&quot;)&#32;AS&#32;<br>&#32;&#32;SELECT&#32;&#32;/*+&#32;NO_MERGE&#32;(qo)&#32;USE_NL(iot)&#32;*/&#32;qt.q_name&#32;Q_NAME,&#32;qt.rowid&#32;ROW_ID,&#32;qt.msgid&#32;MSGID,&#32;qt.corrid&#32;CORRID,&#32;qt.priority&#32;PRIORITY,&#32;qt.state&#32;STATE,&#32;cast(FROM_TZ(qt.delay,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;DELAY,&#32;qt.expiration&#32;EXPIRATION,&#32;cast(FROM_TZ(qt.enq_time,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;ENQ_TIME,&#32;qt.enq_uid&#32;ENQ_UID,&#32;qt.enq_tid&#32;ENQ_TID,&#32;cast(FROM_TZ(qt.deq_time,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;DEQ_TIME,&#32;qt.deq_uid&#32;DEQ_UID,&#32;qt.deq_tid&#32;DEQ_TID,&#32;qt.retry_count&#32;RETRY_COUNT,&#32;qt.exception_qschema&#32;EXCEPTION_QSCHEMA,&#32;qt.exception_queue&#32;EXCEPTION_QUEUE,&#32;qt.cscn&#32;CSCN,&#32;qt.dscn&#32;DSCN,&#32;qt.chain_no&#32;CHAIN_NO,&#32;qt.local_order_no&#32;LOCAL_ORDER_NO,&#32;cast(FROM_TZ(qt.time_manager_info,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;&#32;&#32;TIME_MANAGER_INFO,&#32;qt.step_no&#32;STEP_NO,&#32;qt.user_data&#32;USER_DATA,&#32;qt.sender_name&#32;SENDER_NAME,&#32;qt.sender_address&#32;SENDER_ADDRESS,&#32;qt.sender_protocol&#32;SENDER_PROTOCOL,&#32;qt.dequeue_msgid&#32;DEQUEUE_MSGID,&#32;&#39;PERSISTENT&#39;&#32;DELIVERY_MODE,&#32;0&#32;SEQUENCE_NUM,&#32;0&#32;MSG_NUM,&#32;qo.qid&#32;QUEUE_ID,&#32;qt.user_prop&#32;USER_PROP,&#32;iot.subscriber#&#32;SUBSCRIBER_ID,&#32;iot.name&#32;SUBSCRIBER_NAME,&#32;iot.queue#&#32;QUEUE_EVTID&#32;FROM&#32;&quot;STREAMS_QUEUE_TABLE&quot;&#32;qt,&#32;&quot;AQ$_STREAMS_QUEUE_TABLE_I&quot;&#32;iot,&#32;SYS.USER_AQ_AGENT_PRIVS&#32;up,&#32;SYS.ALL_INT_DEQUEUE_QUEUES&#32;qo&#32;&#32;WHERE&#32;qt.msgid=iot.msgid&#32;&#32;and&#32;(iot.name&#32;=&#32;up.agent_name&#32;or&#32;&#32;iot.subscriber#&#32;=&#32;(select&#32;s.subscriber_id&#32;from&#32;&quot;AQ$_STREAMS_QUEUE_TABLE_S&quot;&#32;s&#32;&#32;where&#32;s.name&#32;=&#32;up.agent_name&#32;and&#32;&#32;bitand(s.subscriber_type,&#32;9)&#32;=&#32;1))&#32;and&#32;qt.q_name&#32;=&#32;qo.name&#32;&#32;AND&#32;qo.owner&#32;=&#32;&#39;IX&#39;&#32;AND&#32;iot.msg_enq_tid&#32;=&#32;qt.enq_tid&#32;AND&#32;&#32;iot.txn_step#&#32;=&#32;qt.step_no&#32;AND&#32;&#32;iot.sender#&#32;=&#32;0&#32;AND&#32;&#32;iot.msg_local_order_no&#32;=&#32;qt.local_order_no&#32;AND&#32;&#32;iot.msg_chain_no&#32;=&#32;qt.chain_no&#32;&#32;WITH&#32;READ&#32;ONLY
+				</pre>
+			</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>インデックス情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="70">
+				<col width="470">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>インデックス名</th>
+			<th>カラムリスト</th>
+			<th>ユニーク</th>
+			<th>オプション</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>制約情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="540">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>制約名</th>
+			<th>種類</th>
+			<th>制約定義</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照先</th>
+			<th>参照先カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報(PK側)</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照元</th>
+			<th>参照元カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>トリガー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="370">
+			</colgroup>
+			<th>No.</th>
+			<th>トリガー名</th>
+			<th>イベント</th>
+			<th>タイミング</th>
+			<th>条件</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>RDBMS固有の情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="250">
+				<col width="630">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>プロパティ名</th>
+			<th>プロパティ値</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>OWNER</td>
+			<td>IX</td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>VIEW_NAME</td>
+			<td>AQ$_STREAMS_QUEUE_TABLE_F</td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>TEXT_LENGTH</td>
+			<td>1718</td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>TEXT</td>
+			<td>SELECT&#32;&#32;/*+&#32;NO_MERGE&#32;(qo)&#32;USE_NL(iot)&#32;*/&#32;qt.q_name&#32;Q_NAME,&#32;qt.rowid&#32;ROW_ID,&#32;qt.msgid&#32;MSGID,&#32;qt.corrid&#32;CORRID,&#32;qt.priority&#32;PRIORITY,&#32;qt.state&#32;STATE,&#32;cast(FROM_TZ(qt.delay,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;DELAY,&#32;qt.expiration&#32;EXPIRATION,&#32;cast(FROM_TZ(qt.enq_time,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;ENQ_TIME,&#32;qt.enq_uid&#32;ENQ_UID,&#32;qt.enq_tid&#32;ENQ_TID,&#32;cast(FROM_TZ(qt.deq_time,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;DEQ_TIME,&#32;qt.deq_uid&#32;DEQ_UID,&#32;qt.deq_tid&#32;DEQ_TID,&#32;qt.retry_count&#32;RETRY_COUNT,&#32;qt.exception_qschema&#32;EXCEPTION_QSCHEMA,&#32;qt.exception_queue&#32;EXCEPTION_QUEUE,&#32;qt.cscn&#32;CSCN,&#32;qt.dscn&#32;DSCN,&#32;qt.chain_no&#32;CHAIN_NO,&#32;qt.local_order_no&#32;LOCAL_ORDER_NO,&#32;cast(FROM_TZ(qt.time_manager_info,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;&#32;&#32;TIME_MANAGER_INFO,&#32;qt.step_no&#32;STEP_NO,&#32;qt.user_data&#32;USER_DATA,&#32;qt.sender_name&#32;SENDER_NAME,&#32;qt.sender_address&#32;SENDER_ADDRESS,&#32;qt.sender_protocol&#32;SENDER_PROTOCOL,&#32;qt.dequeue_msgid&#32;DEQUEUE_MSGID,&#32;&#39;PERSISTENT&#39;&#32;DELIVERY_MODE,&#32;0&#32;SEQUENCE_NUM,&#32;0&#32;MSG_NUM,&#32;qo.qid&#32;QUEUE_ID,&#32;qt.user_prop&#32;USER_PROP,&#32;iot.subscriber#&#32;SUBSCRIBER_ID,&#32;iot.name&#32;SUBSCRIBER_NAME,&#32;iot.queue#&#32;QUEUE_EVTID&#32;FROM&#32;&quot;STREAMS_QUEUE_TABLE&quot;&#32;qt,&#32;&quot;AQ$_STREAMS_QUEUE_TABLE_I&quot;&#32;iot,&#32;SYS.USER_AQ_AGENT_PRIVS&#32;up,&#32;SYS.ALL_INT_DEQUEUE_QUEUES&#32;qo&#32;&#32;WHERE&#32;qt.msgid=iot.msgid&#32;&#32;and&#32;(iot.name&#32;=&#32;up.agent_name&#32;or&#32;&#32;iot.subscriber#&#32;=&#32;(select&#32;s.subscriber_id&#32;from&#32;&quot;AQ$_STREAMS_QUEUE_TABLE_S&quot;&#32;s&#32;&#32;where&#32;s.name&#32;=&#32;up.agent_name&#32;and&#32;&#32;bitand(s.subscriber_type,&#32;9)&#32;=&#32;1))&#32;and&#32;qt.q_name&#32;=&#32;qo.name&#32;&#32;AND&#32;qo.owner&#32;=&#32;&#39;IX&#39;&#32;AND&#32;iot.msg_enq_tid&#32;=&#32;qt.enq_tid&#32;AND&#32;&#32;iot.txn_step#&#32;=&#32;qt.step_no&#32;AND&#32;&#32;iot.sender#&#32;=&#32;0&#32;AND&#32;&#32;iot.msg_local_order_no&#32;=&#32;qt.local_order_no&#32;AND&#32;&#32;iot.msg_chain_no&#32;=&#32;qt.chain_no&#32;&#32;WITH&#32;READ&#32;ONLY</td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>TEXT_VC</td>
+			<td>SELECT&#32;&#32;/*+&#32;NO_MERGE&#32;(qo)&#32;USE_NL(iot)&#32;*/&#32;qt.q_name&#32;Q_NAME,&#32;qt.rowid&#32;ROW_ID,&#32;qt.msgid&#32;MSGID,&#32;qt.corrid&#32;CORRID,&#32;qt.priority&#32;PRIORITY,&#32;qt.state&#32;STATE,&#32;cast(FROM_TZ(qt.delay,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;DELAY,&#32;qt.expiration&#32;EXPIRATION,&#32;cast(FROM_TZ(qt.enq_time,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;ENQ_TIME,&#32;qt.enq_uid&#32;ENQ_UID,&#32;qt.enq_tid&#32;ENQ_TID,&#32;cast(FROM_TZ(qt.deq_time,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;DEQ_TIME,&#32;qt.deq_uid&#32;DEQ_UID,&#32;qt.deq_tid&#32;DEQ_TID,&#32;qt.retry_count&#32;RETRY_COUNT,&#32;qt.exception_qschema&#32;EXCEPTION_QSCHEMA,&#32;qt.exception_queue&#32;EXCEPTION_QUEUE,&#32;qt.cscn&#32;CSCN,&#32;qt.dscn&#32;DSCN,&#32;qt.chain_no&#32;CHAIN_NO,&#32;qt.local_order_no&#32;LOCAL_ORDER_NO,&#32;cast(FROM_TZ(qt.time_manager_info,&#32;&#39;00:00&#39;)&#32;at&#32;time&#32;zone&#32;sessiontimezone&#32;as&#32;timestamp)&#32;&#32;&#32;TIME_MANAGER_INFO,&#32;qt.step_no&#32;STEP_NO,&#32;qt.user_data&#32;USER_DATA,&#32;qt.sender_name&#32;SENDER_NAME,&#32;qt.sender_address&#32;SENDER_ADDRESS,&#32;qt.sender_protocol&#32;SENDER_PROTOCOL,&#32;qt.dequeue_msgid&#32;DEQUEUE_MSGID,&#32;&#39;PERSISTENT&#39;&#32;DELIVERY_MODE,&#32;0&#32;SEQUENCE_NUM,&#32;0&#32;MSG_NUM,&#32;qo.qid&#32;QUEUE_ID,&#32;qt.user_prop&#32;USER_PROP,&#32;iot.subscriber#&#32;SUBSCRIBER_ID,&#32;iot.name&#32;SUBSCRIBER_NAME,&#32;iot.queue#&#32;QUEUE_EVTID&#32;FROM&#32;&quot;STREAMS_QUEUE_TABLE&quot;&#32;qt,&#32;&quot;AQ$_STREAMS_QUEUE_TABLE_I&quot;&#32;iot,&#32;SYS.USER_AQ_AGENT_PRIVS&#32;up,&#32;SYS.ALL_INT_DEQUEUE_QUEUES&#32;qo&#32;&#32;WHERE&#32;qt.msgid=iot.msgid&#32;&#32;and&#32;(iot.name&#32;=&#32;up.agent_name&#32;or&#32;&#32;iot.subscriber#&#32;=&#32;(select&#32;s.subscriber_id&#32;from&#32;&quot;AQ$_STREAMS_QUEUE_TABLE_S&quot;&#32;s&#32;&#32;where&#32;s.name&#32;=&#32;up.agent_name&#32;and&#32;&#32;bitand(s.subscriber_type,&#32;9)&#32;=&#32;1))&#32;and&#32;qt.q_name&#32;=&#32;qo.name&#32;&#32;AND&#32;qo.owner&#32;=&#32;&#39;IX&#39;&#32;AND&#32;iot.msg_enq_tid&#32;=&#32;qt.enq_tid&#32;AND&#32;&#32;iot.txn_step#&#32;=&#32;qt.step_no&#32;AND&#32;&#32;iot.sender#&#32;=&#32;0&#32;AND&#32;&#32;iot.msg_local_order_no&#32;=&#32;qt.local_order_no&#32;AND&#32;&#32;iot.msg_chain_no&#32;=&#32;qt.chain_no&#32;&#32;WITH&#32;READ&#32;ONLY</td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>TYPE_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>TYPE_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td>OID_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td>OID_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td>VIEW_TYPE_OWNER</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td>VIEW_TYPE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td>SUPERVIEW_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td>EDITIONING_VIEW</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td>READ_ONLY</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td>CONTAINER_DATA</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td>BEQUEATH</td>
+			<td>DEFINER</td>
+		</tr>
+		<tr>
+			<td class="number-format">17</td>
+			<td>ORIGIN_CON_ID</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">18</td>
+			<td>DEFAULT_COLLATION</td>
+			<td>USING_NLS_COMP</td>
+		</tr>
+		<tr>
+			<td class="number-format">19</td>
+			<td>CONTAINERS_DEFAULT</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">20</td>
+			<td>CONTAINER_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">21</td>
+			<td>EXTENDED_DATA_LINK</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">22</td>
+			<td>EXTENDED_DATA_LINK_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">23</td>
+			<td>HAS_SENSITIVE_COLUMN</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">24</td>
+			<td>ADMIT_NULL</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">25</td>
+			<td>PDB_LOCAL_ONLY</td>
+			<td>NO</td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>

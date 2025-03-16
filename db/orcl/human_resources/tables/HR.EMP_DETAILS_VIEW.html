@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<title>テーブル定義書&#32;human_resources&#32;HR</title>
+		<link rel="stylesheet" href="a5m2.css">
+	</head>
+	<body>
+	<div class="tableinfo-caption" style="width: 912px;">
+		<table>
+			<colgroup>
+				<col width="300">
+				<col width="300">
+			</colgroup>
+			<tr>
+			<th>EMP_DETAILS_VIEW</th>
+			<td>HR . EMP_DETAILS_VIEW</td>
+			</tr>
+		</table>
+	</div>
+	<div class="tableinfo-caption-stuffing"></div>
+
+	<table>
+		<caption>テーブル情報</caption>
+			<colgroup>
+				<col width="150">
+				<col width="305">
+				<col width="150">
+				<col width="305">
+			</colgroup>
+			<th>システム名</th>
+			<td>human_resources</td>
+			<th>作成者</th>
+			<td>db-sample-schemas-19c</td>
+		</tr>
+		<tr>
+			<th>サブシステム名</th>
+			<td>HR</td>
+			<th>作成日</th>
+			<td>2025/03/16</td>
+		</tr>
+		<tr>
+			<th>RDBMS</th>
+			<td colspan="3">Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production 19.0.0.0.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><b>備考</b><br></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>カラム情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="200">
+				<col width="80">
+				<col width="120">
+				<col width="140">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>論理名</th>
+			<th>物理名</th>
+			<th>データ型</th>
+			<th>Not Null</th>
+			<th>デフォルト</th>
+			<th>備考</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td></td>
+			<td>EMPLOYEE_ID</td>
+			<td>NUMBER(6,&#32;0)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td></td>
+			<td>JOB_ID</td>
+			<td>VARCHAR2(10)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td></td>
+			<td>MANAGER_ID</td>
+			<td>NUMBER(6,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td></td>
+			<td>DEPARTMENT_ID</td>
+			<td>NUMBER(4,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td></td>
+			<td>LOCATION_ID</td>
+			<td>NUMBER(4,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td></td>
+			<td>COUNTRY_ID</td>
+			<td>CHAR(2)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td></td>
+			<td>FIRST_NAME</td>
+			<td>VARCHAR2(20)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td></td>
+			<td>LAST_NAME</td>
+			<td>VARCHAR2(25)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td></td>
+			<td>SALARY</td>
+			<td>NUMBER(8,&#32;2)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td></td>
+			<td>COMMISSION_PCT</td>
+			<td>NUMBER(2,&#32;2)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td></td>
+			<td>DEPARTMENT_NAME</td>
+			<td>VARCHAR2(30)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td></td>
+			<td>JOB_TITLE</td>
+			<td>VARCHAR2(35)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td></td>
+			<td>CITY</td>
+			<td>VARCHAR2(30)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td></td>
+			<td>STATE_PROVINCE</td>
+			<td>VARCHAR2(25)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td></td>
+			<td>COUNTRY_NAME</td>
+			<td>VARCHAR2(40)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td></td>
+			<td>REGION_NAME</td>
+			<td>VARCHAR2(25)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+			<colgroup>
+				<col width="910">
+			</colgroup>
+		<caption>ソース</caption>
+		<tr>
+			<th>ソース</th>
+		</tr>
+		<tr>
+			<td>
+				<pre>
+CREATE&#32;OR&#32;REPLACE&#32;FORCE&#32;EDITIONABLE&#32;VIEW&#32;&quot;HR&quot;.&quot;EMP_DETAILS_VIEW&quot;&#32;(&quot;EMPLOYEE_ID&quot;,&#32;&quot;JOB_ID&quot;,&#32;&quot;MANAGER_ID&quot;,&#32;&quot;DEPARTMENT_ID&quot;,&#32;&quot;LOCATION_ID&quot;,&#32;&quot;COUNTRY_ID&quot;,&#32;&quot;FIRST_NAME&quot;,&#32;&quot;LAST_NAME&quot;,&#32;&quot;SALARY&quot;,&#32;&quot;COMMISSION_PCT&quot;,&#32;&quot;DEPARTMENT_NAME&quot;,&#32;&quot;JOB_TITLE&quot;,&#32;&quot;CITY&quot;,&#32;&quot;STATE_PROVINCE&quot;,&#32;&quot;COUNTRY_NAME&quot;,&#32;&quot;REGION_NAME&quot;)&#32;AS&#32;<br>&#32;&#32;SELECT<br>&#32;&#32;e.employee_id,<br>&#32;&#32;e.job_id,<br>&#32;&#32;e.manager_id,<br>&#32;&#32;e.department_id,<br>&#32;&#32;d.location_id,<br>&#32;&#32;l.country_id,<br>&#32;&#32;e.first_name,<br>&#32;&#32;e.last_name,<br>&#32;&#32;e.salary,<br>&#32;&#32;e.commission_pct,<br>&#32;&#32;d.department_name,<br>&#32;&#32;j.job_title,<br>&#32;&#32;l.city,<br>&#32;&#32;l.state_province,<br>&#32;&#32;c.country_name,<br>&#32;&#32;r.region_name<br>FROM<br>&#32;&#32;employees&#32;e,<br>&#32;&#32;departments&#32;d,<br>&#32;&#32;jobs&#32;j,<br>&#32;&#32;locations&#32;l,<br>&#32;&#32;countries&#32;c,<br>&#32;&#32;regions&#32;r<br>WHERE&#32;e.department_id&#32;=&#32;d.department_id<br>&#32;&#32;AND&#32;d.location_id&#32;=&#32;l.location_id<br>&#32;&#32;AND&#32;l.country_id&#32;=&#32;c.country_id<br>&#32;&#32;AND&#32;c.region_id&#32;=&#32;r.region_id<br>&#32;&#32;AND&#32;j.job_id&#32;=&#32;e.job_id<br>WITH&#32;READ&#32;ONLY
+				</pre>
+			</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>インデックス情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="70">
+				<col width="470">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>インデックス名</th>
+			<th>カラムリスト</th>
+			<th>ユニーク</th>
+			<th>オプション</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>制約情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="540">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>制約名</th>
+			<th>種類</th>
+			<th>制約定義</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照先</th>
+			<th>参照先カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報(PK側)</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照元</th>
+			<th>参照元カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>トリガー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="370">
+			</colgroup>
+			<th>No.</th>
+			<th>トリガー名</th>
+			<th>イベント</th>
+			<th>タイミング</th>
+			<th>条件</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>RDBMS固有の情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="250">
+				<col width="630">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>プロパティ名</th>
+			<th>プロパティ値</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>OWNER</td>
+			<td>HR</td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>VIEW_NAME</td>
+			<td>EMP_DETAILS_VIEW</td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>TEXT_LENGTH</td>
+			<td>538</td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>TEXT</td>
+			<td>SELECT<br>&#32;&#32;e.employee_id,<br>&#32;&#32;e.job_id,<br>&#32;&#32;e.manager_id,<br>&#32;&#32;e.department_id,<br>&#32;&#32;d.location_id,<br>&#32;&#32;l.country_id,<br>&#32;&#32;e.first_name,<br>&#32;&#32;e.last_name,<br>&#32;&#32;e.salary,<br>&#32;&#32;e.commission_pct,<br>&#32;&#32;d.department_name,<br>&#32;&#32;j.job_title,<br>&#32;&#32;l.city,<br>&#32;&#32;l.state_province,<br>&#32;&#32;c.country_name,<br>&#32;&#32;r.region_name<br>FROM<br>&#32;&#32;employees&#32;e,<br>&#32;&#32;departments&#32;d,<br>&#32;&#32;jobs&#32;j,<br>&#32;&#32;locations&#32;l,<br>&#32;&#32;countries&#32;c,<br>&#32;&#32;regions&#32;r<br>WHERE&#32;e.department_id&#32;=&#32;d.department_id<br>&#32;&#32;AND&#32;d.location_id&#32;=&#32;l.location_id<br>&#32;&#32;AND&#32;l.country_id&#32;=&#32;c.country_id<br>&#32;&#32;AND&#32;c.region_id&#32;=&#32;r.region_id<br>&#32;&#32;AND&#32;j.job_id&#32;=&#32;e.job_id<br>WITH&#32;READ&#32;ONLY</td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>TEXT_VC</td>
+			<td>SELECT<br>&#32;&#32;e.employee_id,<br>&#32;&#32;e.job_id,<br>&#32;&#32;e.manager_id,<br>&#32;&#32;e.department_id,<br>&#32;&#32;d.location_id,<br>&#32;&#32;l.country_id,<br>&#32;&#32;e.first_name,<br>&#32;&#32;e.last_name,<br>&#32;&#32;e.salary,<br>&#32;&#32;e.commission_pct,<br>&#32;&#32;d.department_name,<br>&#32;&#32;j.job_title,<br>&#32;&#32;l.city,<br>&#32;&#32;l.state_province,<br>&#32;&#32;c.country_name,<br>&#32;&#32;r.region_name<br>FROM<br>&#32;&#32;employees&#32;e,<br>&#32;&#32;departments&#32;d,<br>&#32;&#32;jobs&#32;j,<br>&#32;&#32;locations&#32;l,<br>&#32;&#32;countries&#32;c,<br>&#32;&#32;regions&#32;r<br>WHERE&#32;e.department_id&#32;=&#32;d.department_id<br>&#32;&#32;AND&#32;d.location_id&#32;=&#32;l.location_id<br>&#32;&#32;AND&#32;l.country_id&#32;=&#32;c.country_id<br>&#32;&#32;AND&#32;c.region_id&#32;=&#32;r.region_id<br>&#32;&#32;AND&#32;j.job_id&#32;=&#32;e.job_id<br>WITH&#32;READ&#32;ONLY</td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>TYPE_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>TYPE_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td>OID_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td>OID_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td>VIEW_TYPE_OWNER</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td>VIEW_TYPE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td>SUPERVIEW_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td>EDITIONING_VIEW</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td>READ_ONLY</td>
+			<td>Y</td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td>CONTAINER_DATA</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td>BEQUEATH</td>
+			<td>DEFINER</td>
+		</tr>
+		<tr>
+			<td class="number-format">17</td>
+			<td>ORIGIN_CON_ID</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">18</td>
+			<td>DEFAULT_COLLATION</td>
+			<td>USING_NLS_COMP</td>
+		</tr>
+		<tr>
+			<td class="number-format">19</td>
+			<td>CONTAINERS_DEFAULT</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">20</td>
+			<td>CONTAINER_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">21</td>
+			<td>EXTENDED_DATA_LINK</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">22</td>
+			<td>EXTENDED_DATA_LINK_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">23</td>
+			<td>HAS_SENSITIVE_COLUMN</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">24</td>
+			<td>ADMIT_NULL</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">25</td>
+			<td>PDB_LOCAL_ONLY</td>
+			<td>NO</td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>

@@ -1,0 +1,410 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<title>テーブル定義書&#32;order_entry&#32;OE</title>
+		<link rel="stylesheet" href="a5m2.css">
+	</head>
+	<body>
+	<div class="tableinfo-caption" style="width: 912px;">
+		<table>
+			<colgroup>
+				<col width="300">
+				<col width="300">
+			</colgroup>
+			<tr>
+			<th></th>
+			<td>OE . OC_ORDERS</td>
+			</tr>
+		</table>
+	</div>
+	<div class="tableinfo-caption-stuffing"></div>
+
+	<table>
+		<caption>テーブル情報</caption>
+			<colgroup>
+				<col width="150">
+				<col width="305">
+				<col width="150">
+				<col width="305">
+			</colgroup>
+			<th>システム名</th>
+			<td>order_entry</td>
+			<th>作成者</th>
+			<td>db-sample-schemas-19c</td>
+		</tr>
+		<tr>
+			<th>サブシステム名</th>
+			<td>OE</td>
+			<th>作成日</th>
+			<td>2025/03/16</td>
+		</tr>
+		<tr>
+			<th>RDBMS</th>
+			<td colspan="3">Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production 19.0.0.0.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><b>備考</b><br></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>カラム情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="200">
+				<col width="80">
+				<col width="120">
+				<col width="140">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>論理名</th>
+			<th>物理名</th>
+			<th>データ型</th>
+			<th>Not Null</th>
+			<th>デフォルト</th>
+			<th>備考</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td></td>
+			<td>ORDER_ID</td>
+			<td>NUMBER(12,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td></td>
+			<td>ORDER_MODE</td>
+			<td>VARCHAR2(8)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td></td>
+			<td>CUSTOMER_REF</td>
+			<td>CUSTOMER_TYP</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td></td>
+			<td>ORDER_STATUS</td>
+			<td>NUMBER(2,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td></td>
+			<td>ORDER_TOTAL</td>
+			<td>NUMBER(8,&#32;2)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td></td>
+			<td>SALES_REP_ID</td>
+			<td>NUMBER(6,&#32;0)</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td></td>
+			<td>ORDER_ITEM_LIST</td>
+			<td>ORDER_ITEM_LIST_TYP</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+			<colgroup>
+				<col width="910">
+			</colgroup>
+		<caption>ソース</caption>
+		<tr>
+			<th>ソース</th>
+		</tr>
+		<tr>
+			<td>
+				<pre>
+CREATE&#32;OR&#32;REPLACE&#32;FORCE&#32;EDITIONABLE&#32;VIEW&#32;&quot;OE&quot;.&quot;OC_ORDERS&quot;&#32;OF&#32;&quot;OE&quot;.&quot;ORDER_TYP&quot;<br>&#32;&#32;WITH&#32;OBJECT&#32;IDENTIFIER&#32;(order_id)&#32;AS&#32;<br>&#32;&#32;SELECT&#32;o.order_id,&#32;o.order_mode,MAKE_REF(oc_customers,o.customer_id),<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o.order_status,o.order_total,o.sales_rep_id,<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;CAST(MULTISET(SELECT&#32;l.order_id,l.line_item_id,l.unit_price,l.quantity,<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;make_ref(oc_product_information,l.product_id)<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;FROM&#32;order_items&#32;l<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;WHERE&#32;o.order_id&#32;=&#32;l.order_id)<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AS&#32;order_item_list_typ)<br>&#32;&#32;&#32;&#32;FROM&#32;orders&#32;o
+				</pre>
+			</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>インデックス情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="70">
+				<col width="470">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>インデックス名</th>
+			<th>カラムリスト</th>
+			<th>ユニーク</th>
+			<th>オプション</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>制約情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="540">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>制約名</th>
+			<th>種類</th>
+			<th>制約定義</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照先</th>
+			<th>参照先カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報(PK側)</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照元</th>
+			<th>参照元カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>トリガー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="370">
+			</colgroup>
+			<th>No.</th>
+			<th>トリガー名</th>
+			<th>イベント</th>
+			<th>タイミング</th>
+			<th>条件</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>ORDERS_ITEMS_TRG</td>
+			<td>Insert</td>
+			<td>Instead&#32;of</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>ORDERS_TRG</td>
+			<td>Insert</td>
+			<td>Instead&#32;of</td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>RDBMS固有の情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="250">
+				<col width="630">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>プロパティ名</th>
+			<th>プロパティ値</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>OWNER</td>
+			<td>OE</td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>VIEW_NAME</td>
+			<td>OC_ORDERS</td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>TEXT_LENGTH</td>
+			<td>416</td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>TEXT</td>
+			<td>SELECT&#32;o.order_id,&#32;o.order_mode,MAKE_REF(oc_customers,o.customer_id),<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o.order_status,o.order_total,o.sales_rep_id,<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;CAST(MULTISET(SELECT&#32;l.order_id,l.line_item_id,l.unit_price,l.quantity,<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;make_ref(oc_product_information,l.product_id)<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;FROM&#32;order_items&#32;l<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;WHERE&#32;o.order_id&#32;=&#32;l.order_id)<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AS&#32;order_item_list_typ)<br>&#32;&#32;&#32;&#32;FROM&#32;orders&#32;o</td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>TEXT_VC</td>
+			<td>SELECT&#32;o.order_id,&#32;o.order_mode,MAKE_REF(oc_customers,o.customer_id),<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o.order_status,o.order_total,o.sales_rep_id,<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;CAST(MULTISET(SELECT&#32;l.order_id,l.line_item_id,l.unit_price,l.quantity,<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;make_ref(oc_product_information,l.product_id)<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;FROM&#32;order_items&#32;l<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;WHERE&#32;o.order_id&#32;=&#32;l.order_id)<br>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;AS&#32;order_item_list_typ)<br>&#32;&#32;&#32;&#32;FROM&#32;orders&#32;o</td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>TYPE_TEXT_LENGTH</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>TYPE_TEXT</td>
+			<td>order_typ&#32;</td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td>OID_TEXT_LENGTH</td>
+			<td>8</td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td>OID_TEXT</td>
+			<td>order_id</td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td>VIEW_TYPE_OWNER</td>
+			<td>OE</td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td>VIEW_TYPE</td>
+			<td>ORDER_TYP</td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td>SUPERVIEW_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td>EDITIONING_VIEW</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td>READ_ONLY</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td>CONTAINER_DATA</td>
+			<td>N</td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td>BEQUEATH</td>
+			<td>DEFINER</td>
+		</tr>
+		<tr>
+			<td class="number-format">17</td>
+			<td>ORIGIN_CON_ID</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td class="number-format">18</td>
+			<td>DEFAULT_COLLATION</td>
+			<td>USING_NLS_COMP</td>
+		</tr>
+		<tr>
+			<td class="number-format">19</td>
+			<td>CONTAINERS_DEFAULT</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">20</td>
+			<td>CONTAINER_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">21</td>
+			<td>EXTENDED_DATA_LINK</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">22</td>
+			<td>EXTENDED_DATA_LINK_MAP</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">23</td>
+			<td>HAS_SENSITIVE_COLUMN</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">24</td>
+			<td>ADMIT_NULL</td>
+			<td>NO</td>
+		</tr>
+		<tr>
+			<td class="number-format">25</td>
+			<td>PDB_LOCAL_ONLY</td>
+			<td>NO</td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>

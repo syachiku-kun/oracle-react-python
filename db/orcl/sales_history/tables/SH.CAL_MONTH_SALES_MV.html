@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+		<title>テーブル定義書&#32;sales_history&#32;SH</title>
+		<link rel="stylesheet" href="a5m2.css">
+	</head>
+	<body>
+	<div class="tableinfo-caption" style="width: 912px;">
+		<table>
+			<colgroup>
+				<col width="300">
+				<col width="300">
+			</colgroup>
+			<tr>
+			<th></th>
+			<td>SH . CAL_MONTH_SALES_MV</td>
+			</tr>
+		</table>
+	</div>
+	<div class="tableinfo-caption-stuffing"></div>
+
+	<table>
+		<caption>テーブル情報</caption>
+			<colgroup>
+				<col width="150">
+				<col width="305">
+				<col width="150">
+				<col width="305">
+			</colgroup>
+			<th>システム名</th>
+			<td>sales_history</td>
+			<th>作成者</th>
+			<td>db-sample-schemas-19c</td>
+		</tr>
+		<tr>
+			<th>サブシステム名</th>
+			<td>SH</td>
+			<th>作成日</th>
+			<td>2025/03/16</td>
+		</tr>
+		<tr>
+			<th>RDBMS</th>
+			<td colspan="3">Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production 19.0.0.0.0</td>
+		</tr>
+		<tr>
+			<td colspan="4"><b>備考</b><br></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>カラム情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="200">
+				<col width="80">
+				<col width="120">
+				<col width="140">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>論理名</th>
+			<th>物理名</th>
+			<th>データ型</th>
+			<th>Not Null</th>
+			<th>デフォルト</th>
+			<th>備考</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td></td>
+			<td>CALENDAR_MONTH_DESC</td>
+			<td>VARCHAR2(8)</td>
+			<td>Yes</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td></td>
+			<td>DOLLARS</td>
+			<td>NUMBER</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+			<colgroup>
+				<col width="910">
+			</colgroup>
+		<caption>ソース</caption>
+		<tr>
+			<th>ソース</th>
+		</tr>
+		<tr>
+			<td>
+				<pre>
+CREATE&#32;MATERIALIZED&#32;VIEW&#32;&quot;SH&quot;.&quot;CAL_MONTH_SALES_MV&quot;&#32;(&quot;CALENDAR_MONTH_DESC&quot;,&#32;&quot;DOLLARS&quot;)<br>&#32;&#32;SEGMENT&#32;CREATION&#32;IMMEDIATE<br>&#32;&#32;ON&#32;PREBUILT&#32;TABLE&#32;WITHOUT&#32;REDUCED&#32;PRECISION<br>&#32;&#32;USING&#32;INDEX&#32;<br>&#32;&#32;REFRESH&#32;FORCE&#32;ON&#32;DEMAND<br>&#32;&#32;USING&#32;DEFAULT&#32;LOCAL&#32;ROLLBACK&#32;SEGMENT<br>&#32;&#32;USING&#32;ENFORCED&#32;CONSTRAINTS&#32;DISABLE&#32;ON&#32;QUERY&#32;COMPUTATION&#32;ENABLE&#32;QUERY&#32;REWRITE<br>&#32;&#32;AS&#32;SELECT&#32;&#32;&#32;t.calendar_month_desc<br>&#32;&#32;,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;sum(s.amount_sold)&#32;AS&#32;dollars<br>&#32;&#32;FROM&#32;&#32;&#32;&#32;&#32;sales&#32;s<br>&#32;&#32;,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;times&#32;t<br>&#32;&#32;WHERE&#32;&#32;&#32;&#32;s.time_id&#32;=&#32;t.time_id<br>&#32;&#32;GROUP&#32;BY&#32;t.calendar_month_desc
+				</pre>
+			</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>インデックス情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="70">
+				<col width="470">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>インデックス名</th>
+			<th>カラムリスト</th>
+			<th>ユニーク</th>
+			<th>オプション</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>制約情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="540">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>制約名</th>
+			<th>種類</th>
+			<th>制約定義</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>SYS_C007691</td>
+			<td>CHECK</td>
+			<td>&quot;CALENDAR_MONTH_DESC&quot;&#32;IS&#32;NOT&#32;NULL</td>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照先</th>
+			<th>参照先カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>外部キー情報(PK側)</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="100">
+				<col width="100">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>外部キー名</th>
+			<th>カラムリスト</th>
+			<th>参照元</th>
+			<th>参照元カラムリスト</th>
+			<th>ON DELETE</th>
+			<th>ON UPDATE</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>トリガー情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="170">
+				<col width="170">
+				<col width="170">
+				<col width="370">
+			</colgroup>
+			<th>No.</th>
+			<th>トリガー名</th>
+			<th>イベント</th>
+			<th>タイミング</th>
+			<th>条件</th>
+		</tr>
+	</table>
+
+<br>
+	<table>
+		<caption>RDBMS固有の情報</caption>
+			<colgroup>
+				<col width="30">
+				<col width="250">
+				<col width="630">
+			</colgroup>
+		<tr>
+			<th>No.</th>
+			<th>プロパティ名</th>
+			<th>プロパティ値</th>
+		</tr>
+		<tr>
+			<td class="number-format">1</td>
+			<td>OWNER</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">2</td>
+			<td>VIEW_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">3</td>
+			<td>TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">4</td>
+			<td>TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">5</td>
+			<td>TEXT_VC</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">6</td>
+			<td>TYPE_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">7</td>
+			<td>TYPE_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">8</td>
+			<td>OID_TEXT_LENGTH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">9</td>
+			<td>OID_TEXT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">10</td>
+			<td>VIEW_TYPE_OWNER</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">11</td>
+			<td>VIEW_TYPE</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">12</td>
+			<td>SUPERVIEW_NAME</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">13</td>
+			<td>EDITIONING_VIEW</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">14</td>
+			<td>READ_ONLY</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">15</td>
+			<td>CONTAINER_DATA</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">16</td>
+			<td>BEQUEATH</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">17</td>
+			<td>ORIGIN_CON_ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">18</td>
+			<td>DEFAULT_COLLATION</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">19</td>
+			<td>CONTAINERS_DEFAULT</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">20</td>
+			<td>CONTAINER_MAP</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">21</td>
+			<td>EXTENDED_DATA_LINK</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">22</td>
+			<td>EXTENDED_DATA_LINK_MAP</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">23</td>
+			<td>HAS_SENSITIVE_COLUMN</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">24</td>
+			<td>ADMIT_NULL</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td class="number-format">25</td>
+			<td>PDB_LOCAL_ONLY</td>
+			<td></td>
+		</tr>
+	</table>
+
+
+	</body>
+</html>
